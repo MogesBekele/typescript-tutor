@@ -27,11 +27,7 @@ let lotsOfPeople: Person[] = []
 
 let printName : Function;
 
-function printName(name: string) {
-  console.log(name)
 
-}
-printName('sjs')
 
 const App = () => {
   return (
