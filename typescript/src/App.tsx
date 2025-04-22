@@ -4,7 +4,7 @@ let name: string;
 
 name = 'sjs'
 
-let age: number;
+let age: number | string;
 age =38
 let isStudent: boolean;
 let hobbies: string[];
@@ -22,6 +22,14 @@ let person: Person ={
   name: 'sjs',
   age: 38
 }
+
+let lotsOfPeople: Person[] = []
+
+function printName(name: string) {
+  console.log(name)
+
+}
+printName('sjs')
 
 const App = () => {
   return (
