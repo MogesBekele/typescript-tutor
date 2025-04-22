@@ -26,13 +26,17 @@ let person: Person ={
 const App = () => {
   return (
     <div>
-      <h1>Typescript</h1>
-      <p>{name}</p>
-      <p>{age}</p>
- 
-      <p>{hobbies}</p>
-      <p>{role}</p>
-      <p>{person.name}</p>
+   <div className="p-6 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold text-blue-600 mb-4">My First React App</h1>
+      <p className="text-lg text-gray-700 mb-2">It's working!</p>
+      <p className="text-gray-800 mb-2">Name: <span className="font-medium">{name}</span></p>
+      <p className="text-gray-800 mb-2">Age: <span className="font-medium">{age}</span></p>
+      <p className="text-gray-800 mb-2">Hobby: <span className="font-medium">{hobbies[0]}</span></p>
+      <p className="text-gray-800 mb-2">Role ID: <span className="font-medium">{role[0]}</span></p>
+      <p className="text-gray-800 mb-2">Person Name: <span className="font-medium">{person.name}</span></p>
+    </div>
+
+
 
 
 
