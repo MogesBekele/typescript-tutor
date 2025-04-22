@@ -28,6 +28,7 @@ let person: Person ={
 let lotsOfPeople: Person[] = []
 
 let printName : (name:string)=> void;
+// you can use never type 
 
 
 
