@@ -2,6 +2,8 @@ import React from 'react'
 
 let name: string;
 
+// use any type and unknown type but dont use it
+
 name = 'sjs'
 
 let age: number | string;
