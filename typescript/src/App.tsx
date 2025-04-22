@@ -10,6 +10,15 @@ let isStudent: boolean;
 let hobbies: string[];
 let role: [number, string];
 
+type Person = {
+  name: string;
+  age: number;
+}
+
+let person: Person ={
+  name: 'sjs',
+  age: 38
+}
 
 const App = () => {
   return (
