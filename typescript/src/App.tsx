@@ -19,6 +19,11 @@ type Person = {
   name: string;
   age?: number;
 }
+interface Person2 {
+  name: string;
+  age?: number;
+  [key: string]: any; // index signature
+}
 
 let person: Person ={
   name: 'sjs',
