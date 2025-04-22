@@ -25,7 +25,7 @@ let person: Person ={
 
 let lotsOfPeople: Person[] = []
 
-let printName : Function;
+let printName : (name:string)=> void;
 
 
 
