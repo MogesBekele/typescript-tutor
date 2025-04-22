@@ -8,11 +8,14 @@ let age: number;
 age =38
 let isStudent: boolean;
 let hobbies: string[];
+hobbies = ['sports', 'reading']
 let role: [number, string];
+
+role = [2, 'author']
 
 type Person = {
   name: string;
-  age: number;
+  age?: number;
 }
 
 let person: Person ={
@@ -22,7 +25,19 @@ let person: Person ={
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <h1>Typescript</h1>
+      <p>{name}</p>
+      <p>{age}</p>
+ 
+      <p>{hobbies}</p>
+      <p>{role}</p>
+      <p>{person.name}</p>
+
+
+
+    </div>
+
   )
 }
 
