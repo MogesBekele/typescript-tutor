@@ -25,6 +25,9 @@ interface Person2 {
   [key: string]: any; // index signature
 }
 // the same as type but you can use extends and implements
+// use interface alot
+
+
 
 let person: Person ={
   name: 'sjs',
