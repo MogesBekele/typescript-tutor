@@ -25,7 +25,7 @@ let person: Person ={
   age: 38
 }
 
-let lotsOfPeople: Person[] = []
+
 
 let printName : (name:string)=> void;
 // you can use never type 
