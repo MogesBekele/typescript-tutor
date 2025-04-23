@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputField from "./component/InputField";
+import { Todo } from "./model";
 
 let name: string;
 
@@ -38,6 +39,7 @@ let printName: (name: string) => void;
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
+  const [todos, setTodos] = useState<string[]>([]);
 
   console.log(todo);
   
