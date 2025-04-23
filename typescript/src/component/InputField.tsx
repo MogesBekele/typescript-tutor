@@ -5,10 +5,12 @@ interface Props {
   setTodo: React.Dispatch<React.SetStateAction<string>>; // use this type for setState function
 
 }
-const InputField = ({todo, setTodo}:Props) => {
+const InputField = ({ todo, setTodo}:Props) => {
   return (
     <form className="flex justify-between items-center bg-white p-4 rounded-2xl shadow-md w-full max-w-md mx-auto mt-6">
       <input
+      value={todo}
+      onChange={(e)=>setTodo(e.target.value)}
         type="text"
         placeholder="Enter a task"
         className="flex-1 border border-gray-300 rounded-lg p-2 mr-3 focus:outline-none focus:ring-2 focus:ring-blue-500"

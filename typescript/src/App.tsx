@@ -38,6 +38,8 @@ let printName: (name: string) => void;
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
+
+  console.log(todo);
   
   return <div>
 
