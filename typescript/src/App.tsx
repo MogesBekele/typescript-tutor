@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import InputField from "./component/InputField";
 
 let name: string;
@@ -36,7 +36,9 @@ let person: Person = {
 let printName: (name: string) => void;
 // you can use never type
 
-const App = () => {
+const App: React.FC = () => {
+  const [state, setState] = useState('initial state');
+  
   return <div>
 
     <InputField/>
