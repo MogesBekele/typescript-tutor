@@ -1,4 +1,5 @@
 import React from "react";
+import InputField from "./component/InputField";
 
 let name: string;
 
@@ -36,7 +37,10 @@ let printName: (name: string) => void;
 // you can use never type
 
 const App = () => {
-  return <div></div>;
+  return <div>
+
+    <InputField/>
+  </div>;
 };
 
 export default App;
