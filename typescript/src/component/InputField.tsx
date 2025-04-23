@@ -2,9 +2,18 @@ import React from "react";
 
 const InputField = () => {
   return (
-    <form className="flex justify-between items-center bg-white p-3 rounded-2xl shadow-md w-1/2">
-      <input type="text" placeholder="enter a task" />
-      <button type="submit">GO</button>
+    <form className="flex justify-between items-center bg-white p-4 rounded-2xl shadow-md w-full max-w-md mx-auto mt-6">
+      <input
+        type="text"
+        placeholder="Enter a task"
+        className="flex-1 border border-gray-300 rounded-lg p-2 mr-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        type="submit"
+        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200"
+      >
+        GO
+      </button>
     </form>
   );
 };
