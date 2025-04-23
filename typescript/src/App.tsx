@@ -37,12 +37,13 @@ let printName: (name: string) => void;
 // you can use never type
 
 const App: React.FC = () => {
-  const [state, setState] = useState('initial state');
+  const [todo, setTodo] = useState<string>("");
   
   return <div>
 
-    <InputField/>
+    <InputField todo= {todo} setTodo={setTodo} />
   </div>;
 };
 
 export default App;
+
