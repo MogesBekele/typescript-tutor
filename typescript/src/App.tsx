@@ -5,13 +5,23 @@ import { Todo } from "./Model";
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [editId, setEditId] = useState<number | null>(null); // Track the task being edited
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    if (todo.trim()) {
-      setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
-      setTodo("");
+    if (editId !== null) {
+      // Update the task if in edit mode
+      setTodos(
+        todos.map((t) =>
+          t.id === editId ? { ...t, todo: todo.trim() } : t
+        )
+      );
+      setEditId(null); // Exit edit mode
+    } else if (todo.trim()) {
+      // Add a new task
+      setTodos([...todos, { id: Date.now(), todo: todo.trim(), isDone: false }]);
     }
+    setTodo(""); // Clear the input field
   };
 
   const handleDelete = (id: number) => {
@@ -24,6 +34,14 @@ const App: React.FC = () => {
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
       )
     );
+  };
+
+  const handleEdit = (id: number) => {
+    const taskToEdit = todos.find((todo) => todo.id === id);
+    if (taskToEdit) {
+      setTodo(taskToEdit.todo); // Set the input field to the task's current text
+      setEditId(id); // Enter edit mode
+    }
   };
 
   return (
@@ -66,6 +84,12 @@ const App: React.FC = () => {
                   }`}
                 >
                   {todo.isDone ? "Undo" : "Complete"}
+                </button>
+                <button
+                  onClick={() => handleEdit(todo.id)}
+                  className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition duration-200"
+                >
+                  Edit
                 </button>
                 <button
                   onClick={() => handleDelete(todo.id)}
