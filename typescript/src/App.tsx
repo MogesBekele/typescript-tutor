@@ -15,16 +15,7 @@ const App: React.FC = () => {
       setTodo("");
     }
   };
-  const handleDelete = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-  const handleDone = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-      )
-    );
-  };
+
 
   return (
     <div>
