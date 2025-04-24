@@ -3,11 +3,12 @@ import React from "react";
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>; // use this type for setState function
+  handleAdd: () => void; // use this type for the function that handles form submission
 
 }
-const InputField = ({ todo, setTodo}:Props) => {
+const InputField = ({ todo, setTodo, handleAdd}:Props) => {
   return (
-    <form className="flex justify-between items-center bg-white p-4 rounded-2xl shadow-md w-full max-w-md mx-auto mt-6">
+    <form onSubmit={handleAdd} className="flex justify-between items-center bg-white p-4 rounded-2xl shadow-md w-full max-w-md mx-auto mt-6">
       <input
       value={todo}
       onChange={(e)=>setTodo(e.target.value)}
@@ -21,6 +22,7 @@ const InputField = ({ todo, setTodo}:Props) => {
       >
         GO
       </button>
+
     </form>
   );
 };
