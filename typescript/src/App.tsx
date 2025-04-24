@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
-    if (todo) {
+    if (todo.trim()) {
       setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
       setTodo("");
     }
@@ -16,6 +16,14 @@ const App: React.FC = () => {
 
   const handleDelete = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const toggleComplete = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
   };
 
   return (
@@ -37,17 +45,35 @@ const App: React.FC = () => {
           todos.map((todo) => (
             <div
               key={todo.id}
-              className="bg-white p-4 rounded-lg shadow-md w-full max-w-md mb-4 flex justify-between items-center"
+              className={`bg-white p-4 rounded-lg shadow-md w-full max-w-md mb-4 flex justify-between items-center ${
+                todo.isDone ? "opacity-50" : ""
+              }`}
             >
-              <h2 className="text-lg font-semibold text-gray-800">
+              <h2
+                className={`text-lg font-semibold ${
+                  todo.isDone ? "line-through text-gray-500" : "text-gray-800"
+                }`}
+              >
                 {todo.todo}
               </h2>
-              <button
-                onClick={() => handleDelete(todo.id)}
-                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200"
-              >
-                Delete
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => toggleComplete(todo.id)}
+                  className={`px-4 py-2 rounded-lg transition duration-200 ${
+                    todo.isDone
+                      ? "bg-green-500 text-white hover:bg-green-600"
+                      : "bg-gray-300 text-gray-800 hover:bg-gray-400"
+                  }`}
+                >
+                  {todo.isDone ? "Undo" : "Complete"}
+                </button>
+                <button
+                  onClick={() => handleDelete(todo.id)}
+                  className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           ))
         )}
@@ -65,18 +91,6 @@ const App: React.FC = () => {
               className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-200"
             >
               Delete Completed
-            </button>
-            <button
-              onClick={() => setTodos(todos.filter((todo) => todo.isDone))}
-              className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-200"
-            >
-              Show Completed
-            </button>
-            <button
-              onClick={() => setTodos(todos.filter((todo) => !todo.isDone))}
-              className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition duration-200"
-            >
-              Show Uncompleted
             </button>
           </div>
         )}
