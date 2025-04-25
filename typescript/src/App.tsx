@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import InputField from "./component/InputField";
 import { Todo } from "./Model";
+import TodoList from "./component/TodoList";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
   const [editId, setEditId] = useState<number | null>(null); // Track the task being edited
-  import TodoList from "./component/TodoList";
+
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
