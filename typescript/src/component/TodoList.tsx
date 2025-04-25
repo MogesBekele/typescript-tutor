@@ -1,6 +1,48 @@
 import React from 'react'
+import { Todo } from '../Model'
 
+interface Props{
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>; // use this type for setState function
+}
 const TodoList: React.FC = ({todo, todos, setTodos}) => {
+  
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (editId !== null) {
+      // Update the task if in edit mode
+      setTodos(
+        todos.map((t) =>
+          t.id === editId ? { ...t, todo: todo.trim() } : t
+        )
+      );
+      setEditId(null); // Exit edit mode
+    } else if (todo.trim()) {
+      // Add a new task
+      setTodos([...todos, { id: Date.now(), todo: todo.trim(), isDone: false }]);
+    }
+    setTodo(""); // Clear the input field
+  };
+
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const toggleComplete = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+
+  const handleEdit = (id: number) => {
+    const taskToEdit = todos.find((todo) => todo.id === id);
+    if (taskToEdit) {
+      setTodo(taskToEdit.todo); // Set the input field to the task's current text
+      setEditId(id); // Enter edit mode
+    }
+  };
   return (
     <div className="flex flex-col items-center mt-8">
         {todos.length === 0 ? (
