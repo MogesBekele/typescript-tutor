@@ -10,8 +10,8 @@ const TodoList: React.FC = ({ todos, setTodos}) => {
   
   return (
     <div className="flex flex-col items-center mt-8">
-      {todos.map((todo)=>(
-        <li>{todo.todo}</li>
+      {todos.map((todo, index)=>(
+        <li key={index} >{todo.todo}</li>
       ))}
    
 
