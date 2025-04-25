@@ -6,6 +6,7 @@ const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
   const [editId, setEditId] = useState<number | null>(null); // Track the task being edited
+  import TodoList from "./component/TodoList";
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,6 +52,7 @@ const App: React.FC = () => {
       </h1>
 
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+      <TodoList/>
 
       <div className="flex flex-col items-center mt-8">
         {todos.length === 0 ? (
