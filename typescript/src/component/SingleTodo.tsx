@@ -1,13 +1,12 @@
 import React from "react";
 import { Todo } from "../Model";
-import { CiEdit } from "react-icons/ci";
-import { MdDelete } from "react-icons/md";
+import { MdEdit, MdDelete } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
 
 type Props = {
   todo: Todo;
   todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>; // use this type for setState function
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
 
 const SingleTodo = ({ todo, todos, setTodos }: Props) => {
@@ -42,7 +41,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
           <MdDelete />
         </button>
         <button className="bg-yellow-500 text-white px-2 py-1 rounded-lg hover:bg-yellow-600 transition duration-200">
-          <CiEdit />
+          <MdEdit />
         </button>
       </div>
     </div>
