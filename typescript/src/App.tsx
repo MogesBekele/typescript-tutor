@@ -13,14 +13,15 @@ const App: React.FC = () => {
     if (editId !== null) {
       // Update the task if in edit mode
       setTodos(
-        todos.map((t) =>
-          t.id === editId ? { ...t, todo: todo.trim() } : t
-        )
+        todos.map((t) => (t.id === editId ? { ...t, todo: todo.trim() } : t))
       );
       setEditId(null); // Exit edit mode
     } else if (todo.trim()) {
       // Add a new task
-      setTodos([...todos, { id: Date.now(), todo: todo.trim(), isDone: false }]);
+      setTodos([
+        ...todos,
+        { id: Date.now(), todo: todo.trim(), isDone: false },
+      ]);
     }
     setTodo(""); // Clear the input field
   };
@@ -52,9 +53,7 @@ const App: React.FC = () => {
       </h1>
 
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <TodoList todos={todos} setTodos={setTodos}/>
-
-     
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 };
