@@ -26,26 +26,6 @@ const App: React.FC = () => {
     setTodo(""); // Clear the input field
   };
 
-  // const handleDelete = (id: number) => {
-  //   setTodos(todos.filter((todo) => todo.id !== id));
-  // };
-
-  // const toggleComplete = (id: number) => {
-  //   setTodos(
-  //     todos.map((todo) =>
-  //       todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-  //     )
-  //   );
-  // };
-
-  // const handleEdit = (id: number) => {
-  //   const taskToEdit = todos.find((todo) => todo.id === id);
-  //   if (taskToEdit) {
-  //     setTodo(taskToEdit.todo); // Set the input field to the task's current text
-  //     setEditId(id); // Enter edit mode
-  //   }
-  // };
-
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 p-6 flex flex-col items-center">
       <h1 className="text-4xl font-bold text-center text-purple-700 mb-8">
