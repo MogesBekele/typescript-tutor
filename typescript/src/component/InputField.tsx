@@ -22,7 +22,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
       className="flex justify-between items-center bg-white p-4 rounded-2xl shadow-md w-full max-w-md mx-auto mt-6"
     >
       <input
-        ref={inputRef} // Attach the ref to the input field
+        ref={inputRef} 
         value={todo}
         onChange={(e) => setTodo(e.target.value)} // Update the todo state with the input value
         type="text"
